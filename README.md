@@ -1,16 +1,49 @@
-# mcp-replicate
+# @pipeworx/replicate
 
-Replicate MCP.
+[Replicate](https://replicate.com/docs/reference/http) MCP — run open models (Flux, Llama, Whisper, etc.) and manage predictions. Free trial credits on signup.
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 673+ live data sources.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1394+ live data sources.
 
-## Tools
+## Auth
 
-| Tool | Description |
-|------|-------------|
-| `model_version` | Version detail. |
-| `create_prediction` | Kick off a model run. |
-| `create_deployment_prediction` | Run via a deployment. |
+- Platform: `PLATFORM_REPLICATE_KEY`. BYO: `?_apiKey=…`.
+
+## Tools (models)
+
+- `list_models(cursor?)` — list public models
+- `model(owner, name)` — model detail
+- `model_versions(owner, name)` — list versions
+- `model_version(owner, name, version_id)` — version detail
+- `search_models(query)` — model search
+- `collections()` — model collections
+- `collection(slug)` — collection detail
+
+## Tools (predictions)
+
+- `create_prediction(version, input, webhook?, webhook_events_filter?, stream?)` — kick off a model run
+- `prediction(id)` — single prediction (poll for completion)
+- `list_predictions(cursor?)` — recent predictions
+- `cancel_prediction(id)` — cancel a running prediction
+
+## Tools (deployments)
+
+- `list_deployments(cursor?)` — your deployments
+- `deployment(owner, name)` — deployment detail
+- `create_deployment_prediction(owner, name, input, webhook?, webhook_events_filter?, stream?)` — run via a deployment (faster cold starts)
+
+## Tools (account)
+
+- `account()` — your account
+- `hardware()` — available hardware types
+
+## Notes
+
+- `create_prediction` returns immediately with the prediction in `starting` or `processing` state. Poll `prediction(id)` until `status` is `succeeded` or `failed`, OR pass a `webhook` URL to be notified.
+- For LLM-style streaming, pass `stream=true` and use the returned `urls.stream` SSE endpoint.
+
+## Data source
+
+`https://api.replicate.com/v1`
 
 ## Quick Start
 
@@ -26,7 +59,7 @@ Add to your MCP client (Claude Desktop, Cursor, Windsurf, etc.):
 }
 ```
 
-Or connect to the full Pipeworx gateway for access to all 673+ data sources:
+Or connect to the full Pipeworx gateway for access to all 1394+ data sources:
 
 ```json
 {
@@ -50,7 +83,7 @@ The gateway picks the right tool and fills the arguments automatically.
 
 ## More
 
-- [All tools and guides](https://github.com/pipeworx-io/examples)
+- [Docs and guides](https://pipeworx.io/docs)
 - [pipeworx.io](https://pipeworx.io)
 
 ## License
