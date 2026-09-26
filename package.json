@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-replicate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Replicate MCP.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-591a275b72c1af0aec712cf15b91badc13a37fd1285f3a7434e07e3baaa0b067",
-    "sourceCommit": "00c836ddeaecbdd581dcfb0fb1842efea104006e"
+    "sourceHash": "v1-4e923397a79f97f018f55139e7e67d31f785aa9e86a15fa4ed82f0bdd0593c3e",
+    "sourceCommit": "6fe8fb3e01138dfc4ebe7d5c246503aab9278d06"
   }
 }
