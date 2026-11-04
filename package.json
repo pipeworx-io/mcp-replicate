@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-replicate",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Replicate MCP.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "replicate",
     "gatewaySlug": "replicate",
-    "sourceHash": "v1-9943763b1ddfd48a2a96adb7abbddbad6c388f441d8feee10b54bed81087679b",
-    "sourceCommit": "6bae4cfa7b6a73bbe014dc8820a19c80c842b21e"
+    "sourceHash": "v1-2bcfee2ab8c9b9f5c23c12c93e0b247f39e7a50ecabe5f0766f10ffa3c98b6f7",
+    "sourceCommit": "db27387ed3ef7ec4805d465f7964a7f65f937006"
   }
 }
